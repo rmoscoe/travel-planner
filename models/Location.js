@@ -22,13 +22,6 @@ Location.init(
     name: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            is: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-        }
     }
   },
   {
