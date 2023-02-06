@@ -19,15 +19,28 @@ Trips.init(
       primaryKey: true,
       autoIncrement: true
     },
-    name: {
-        type: DataTypes.STRING,
+    trip_budget: {
+        type: DataTypes.DECIMAL,
         allowNull: false
     },
-    email: {
-        type: DataTypes.STRING,
+    traveller_amount: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    traveller_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        validate: {
-            is: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+        references: {
+            model: Traveller,
+            key: "id"
+        }
+    },
+    location_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: Location,
+            key: "id"
         }
     }
   },
@@ -36,10 +49,10 @@ Trips.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'location',
+    modelName: 'trips',
   }
 );
 
-Location.sync();
+Trips.sync();
 
-module.exports = Location;
+module.exports = Trips;
