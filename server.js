@@ -1,6 +1,6 @@
 const express = require('express');
-const routes = require(./routes);
-const sequilize = require('./config/connection');
+const routes = require('./routes');
+const sequelize = require('./config/connection');
 
 // database name travel_planner
 
@@ -12,6 +12,6 @@ app.use(express.urlencoded({ extended: true}));
 
 app.use(routes);
 
-sequilize.sync({force: false}).then(() => {
+sequelize.sync({force: false}).then(() => {
     app.listen(PORT, () => console.log(`Big Brother is listening on http://localhost:${PORT}...`))
 });
