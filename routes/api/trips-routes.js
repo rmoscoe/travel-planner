@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     // traveller_id: 
     // }
         const trip = Trips.create(req.body);
-        
+        if (req.body)
     } catch (err) {
         res.status(500).json(err);
     }
